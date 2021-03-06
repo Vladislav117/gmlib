@@ -29,6 +29,9 @@ class Point:
             'y': self.y
         }
 
+    def __repr__(self):
+        return f'[x = {self.x}; y = {self.y}]'
+
 
 class Size:
     def __init__(self, width=1, height=1):
@@ -55,6 +58,9 @@ class Size:
             'width': self.width,
             'height': self.height
         }
+
+    def __repr__(self):
+        return f'[{self.width} x {self.height}]'
 
 
 class Rectangle:
@@ -83,6 +89,9 @@ class Rectangle:
             'width': self.size.width,
             'height': self.size.height
         }
+
+    def __repr__(self):
+        return f'[{self.size.width} x {self.size.height}] at [{self.position.x}, {self.position.y}]'
 
 
 def emptyMapFillerFormula(point):
