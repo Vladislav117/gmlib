@@ -1,5 +1,6 @@
 import json
 import math
+import os
 
 
 class Point:
@@ -157,3 +158,36 @@ class Reader:
         content = fp.read()
         fp.close()
         return content
+
+
+class Files:
+    @classmethod
+    def all(cls, folder):
+        folder = folder.replace('/', '\\')
+        result = []
+        for root, dirs, files in os.walk(folder, topdown=False):
+            for name in files:
+                result.append(os.path.join(root, name))
+        return result
+
+    @classmethod
+    def allByExtension(cls, folder, extension):
+        folder = folder.replace('/', '\\')
+        result = []
+        for root, dirs, files in os.walk(folder, topdown=False):
+            for name in files:
+                if name.endswith(f'.{extension}'):
+                    result.append(os.path.join(root, name))
+        return result
+
+    @classmethod
+    def allByExtensions(cls, folder, extensions):
+        folder = folder.replace('/', '\\')
+        result = []
+        for root, dirs, files in os.walk(folder, topdown=False):
+            for name in files:
+                for extension in extensions:
+                    if name.endswith(f'.{extension}'):
+                        result.append(os.path.join(root, name))
+                        break
+        return result
