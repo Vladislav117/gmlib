@@ -292,3 +292,7 @@ class IDManager:
     @classmethod
     def initialized(cls):
         return cls.id != -1
+
+    @classmethod
+    def getLastID(cls):
+        return cls.id
