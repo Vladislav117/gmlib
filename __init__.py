@@ -59,6 +59,10 @@ class Line:
     def __repr__(self):
         return f'[{self.position_from.x}, {self.position_from.y}] --> [{self.position_to.x}, {self.position_to.y}]'
 
+    def __len__(self):
+        return math.sqrt((self.position_to.x - self.position_from.x) ** 2 +
+                         (self.position_to.y - self.position_from.y) ** 2)
+
 
 class Size:
     def __init__(self, width=1, height=1):
