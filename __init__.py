@@ -191,3 +191,30 @@ class Files:
                         result.append(os.path.join(root, name))
                         break
         return result
+
+
+class Sine:
+    def __init__(self, left_bound=-1, right_bound=1, step=1, start=None):
+        self.left_bound = left_bound
+        self.right_bound = right_bound
+        self.value = left_bound
+        if start is not None:
+            self.value = start
+        self.step = step
+        self.rotation = 1
+
+    def update(self, multiplier=1):
+        self.value += self.step * multiplier * self.rotation
+        if self.left_bound >= self.value:
+            self.rotation = 1
+            self.value = self.left_bound
+        elif self.value >= self.right_bound:
+            self.rotation = -1
+            self.value = self.right_bound
+
+    def __repr__(self):
+        if self.rotation == 1:
+            arrow = '-->'
+        else:
+            arrow = '<--'
+        return f'[{self.left_bound} {arrow} {self.right_bound} (+{self.step})] >> {self.value}'
