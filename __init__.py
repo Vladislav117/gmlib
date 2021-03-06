@@ -55,3 +55,36 @@ class Map:
             return self._map[y][x]
         else:
             return self.outOfScopeObject
+
+
+class TagData:
+    def __init__(self):
+        self._data = {}
+
+    def add(self, key, item):
+        if key not in self._data:
+            self._data[key] = item
+
+    def set(self, key, item):
+        self._data[key] = item
+
+    def replace(self, key, item):
+        if key in self._data:
+            self._data[key] = item
+
+    def remove(self, key):
+        if key in self._data:
+            del self._data[key]
+
+    def get(self, key):
+        if key in self._data:
+            return self._data[key]
+
+    def compare(self, key, compareTo):
+        if key in self._data:
+            return self._data[key] == compareTo
+        else:
+            return False
+
+    def has(self, key):
+        return key in self._data
