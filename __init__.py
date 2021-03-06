@@ -33,6 +33,33 @@ class Point:
         return f'[x = {self.x}; y = {self.y}]'
 
 
+class Line:
+    def __init__(self, position_from: Point, position_to: Point):
+        self.position_from = position_from
+        self.position_to = position_to
+
+    def length(self):
+        return math.sqrt((self.position_to.x - self.position_from.x) ** 2 +
+                         (self.position_to.y - self.position_from.y) ** 2)
+
+    def list(self):
+        return [self.position_from.x, self.position_from.y, self.position_to.x, self.position_to.y]
+
+    def tuple(self):
+        return self.position_from.x, self.position_from.y, self.position_to.x, self.position_to.y
+
+    def dict(self):
+        return {
+            'x1': self.position_from.x,
+            'y1': self.position_from.y,
+            'x2': self.position_to.x,
+            'y2': self.position_to.y
+        }
+
+    def __repr__(self):
+        return f'[{self.position_from.x}, {self.position_from.y}] --> [{self.position_to.x}, {self.position_to.y}]'
+
+
 class Size:
     def __init__(self, width=1, height=1):
         self.width = width
