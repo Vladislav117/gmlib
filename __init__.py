@@ -56,6 +56,34 @@ class Size:
         }
 
 
+class Rectangle:
+    def __init__(self, position: Point, size: Size):
+        self.position = position
+        self.size = size
+
+    def pointOnRectangle(self, point: Point):
+        return (self.position.x <= point.x <= self.position.x + self.size.width) and \
+               (self.position.y <= point.y <= self.position.y + self.size.height)
+
+    def onRectangle(self, x, y):
+        return (self.position.x <= x <= self.position.x + self.size.width) and \
+               (self.position.y <= y <= self.position.y + self.size.height)
+
+    def list(self):
+        return [self.position.x, self.position.y, self.size.width, self.size.height]
+
+    def tuple(self):
+        return self.position.x, self.position.y, self.size.width, self.size.height
+
+    def dict(self):
+        return {
+            'x': self.position.x,
+            'y': self.position.y,
+            'width': self.size.width,
+            'height': self.size.height
+        }
+
+
 def emptyMapFillerFormula(point):
     return None
 
