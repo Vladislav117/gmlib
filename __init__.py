@@ -279,3 +279,16 @@ class Sine:
         else:
             arrow = '<--'
         return f'[{self.left_bound} {arrow} {self.right_bound} (+{self.step})] >> {self.value}'
+
+
+class IDManager:
+    id = -1
+
+    @classmethod
+    def get(cls):
+        cls.id += 1
+        return cls.id
+
+    @classmethod
+    def initialized(cls):
+        return cls.id != -1
