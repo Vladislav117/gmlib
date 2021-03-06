@@ -179,6 +179,12 @@ class TagData:
     def has(self, key):
         return key in self._data
 
+    def __len__(self):
+        return len(self._data)
+
+    def length(self):
+        return len(self._data)
+
 
 class Reader:
     @classmethod
