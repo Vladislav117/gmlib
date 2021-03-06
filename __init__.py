@@ -143,6 +143,7 @@ class Map:
         for y in range(self.size.height):
             for x in range(self.size.width):
                 self._map[y][x] = formula(x, y)
+        return self
 
     def get(self, x, y):
         if 0 <= x < self.size.width and 0 <= y < self.size.height:
