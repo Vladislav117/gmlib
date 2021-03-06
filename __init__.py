@@ -154,17 +154,21 @@ class TagData:
     def add(self, key, item):
         if key not in self._data:
             self._data[key] = item
+        return self
 
     def set(self, key, item):
         self._data[key] = item
+        return self
 
     def replace(self, key, item):
         if key in self._data:
             self._data[key] = item
+        return self
 
     def remove(self, key):
         if key in self._data:
             del self._data[key]
+        return self
 
     def get(self, key):
         if key in self._data:
