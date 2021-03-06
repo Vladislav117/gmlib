@@ -262,6 +262,7 @@ class Sine:
         elif self.value >= self.right_bound:
             self.rotation = -1
             self.value = self.right_bound
+        return self
 
     def __str__(self):
         return str(self.value)
