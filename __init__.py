@@ -1,3 +1,4 @@
+import json
 import math
 
 
@@ -112,3 +113,19 @@ class TagData:
 
     def has(self, key):
         return key in self._data
+
+
+class Reader:
+    @classmethod
+    def json(cls, path, encoding='utf-8'):
+        fp = open(path, encoding=encoding)
+        data = json.load(fp)
+        fp.close()
+        return data
+
+    @classmethod
+    def text(cls, path, encoding='utf-8'):
+        fp = open(path, encoding=encoding)
+        content = fp.read()
+        fp.close()
+        return content
