@@ -15,6 +15,18 @@ class Point:
     def distanceFromCenter(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
+    def list(self):
+        return [self.x, self.y]
+
+    def tuple(self):
+        return self.x, self.y
+
+    def dict(self):
+        return {
+            'x': self.x,
+            'y': self.y
+        }
+
 
 class Size:
     def __init__(self, width=1, height=1):
@@ -29,6 +41,18 @@ class Size:
 
     def square(self):
         return self.width * self.height
+
+    def list(self):
+        return [self.width, self.height]
+
+    def tuple(self):
+        return self.width, self.height
+
+    def dict(self):
+        return {
+            'width': self.width,
+            'height': self.height
+        }
 
 
 def emptyMapFillerFormula(point):
