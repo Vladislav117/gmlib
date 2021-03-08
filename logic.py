@@ -41,6 +41,15 @@ class Gate:
             self._state = bool(state)
         return self
 
+    def __and__(self, other):
+        return self._state and other
+
+    def __or__(self, other):
+        return self._state or other
+
+    def __call__(self, *args, **kwargs):
+        return self._state
+
     def __bool__(self):
         return self._state
 
