@@ -55,3 +55,31 @@ class Gate:
 
     def __repr__(self):
         return f' -> {self._state} -> '
+
+
+def andMany(*values):
+    result = True
+    for value in values:
+        print('o')
+        if not value:
+            result = False
+            break
+        result = result and value
+    return result
+
+
+def orMany(*values):
+    result = False
+    for value in values:
+        if value:
+            result = True
+            break
+        result = result or value
+    return result
+
+
+def notMany(*values):
+    result = list(values)
+    for value_index in range(len(result)):
+        result[value_index] = not result[value_index]
+    return result
