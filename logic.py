@@ -76,10 +76,3 @@ def orMany(*values):
             break
         result = result or value
     return result
-
-
-def notMany(*values):
-    result = list(values)
-    for value_index in range(len(result)):
-        result[value_index] = not result[value_index]
-    return result
