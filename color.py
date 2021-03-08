@@ -114,3 +114,13 @@ class Color:
             self.b = int(r[2])
         self.check()
         return self
+
+    def __getitem__(self, item):
+        if item == 0 or item == "r":
+            return self.r
+        elif item == 1 or item == "g":
+            return self.g
+        elif item == 2 or item == "b":
+            return self.b
+        else:
+            return -1
