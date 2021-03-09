@@ -116,11 +116,29 @@ class Color:
         return self
 
     def __getitem__(self, item):
-        if item == 0 or item == "r":
-            return self.r
-        elif item == 1 or item == "g":
-            return self.g
-        elif item == 2 or item == "b":
-            return self.b
+        def color_factor_name(value):
+            if isinstance(value, (int, float)):
+                return int(value)
+            elif isinstance(value, str):
+                val = value.lower()
+                if val == "r" or val == "red" or val == "0":
+                    return 0
+                elif val == "g" or val == "green" or val == "1":
+                    return 1
+                elif val == "b" or val == "blue" or val == "2":
+                    return 2
+            else:
+                return None
+
+        item = color_factor_name(item)
+        if item is not None:
+            if item == 0:
+                return self.r
+            elif item == 1:
+                return self.g
+            elif item == 2:
+                return self.b
+            else:
+                return -1
         else:
             return -1
